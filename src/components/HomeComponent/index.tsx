@@ -15,7 +15,7 @@ const Home = () => {
   useEffect(() => {
     const fetchWorkouts = async () => {
       try {
-        const response = await fetch('http://localhost:4000/api/workouts', {
+        const response = await fetch(`${process.env.API_URI}/api/workouts`, {
           headers: {
             'Authorization': `Bearer ${userState.user?.token}`
           }
