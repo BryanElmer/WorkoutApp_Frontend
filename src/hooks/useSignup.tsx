@@ -10,7 +10,7 @@ export const useSignup = () => {
         setError(null);
         setIsLoading(true);
 
-        const response = await fetch(`${process.env.API_URI}/api/user/signup`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URI}/api/user/signup`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

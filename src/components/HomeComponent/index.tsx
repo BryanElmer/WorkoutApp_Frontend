@@ -15,7 +15,7 @@ const Home = () => {
   useEffect(() => {
     const fetchWorkouts = async () => {
       try {
-        const response = await fetch(`${process.env.API_URI}/api/workouts`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URI}/api/workouts`, {
           headers: {
             'Authorization': `Bearer ${userState.user?.token}`
           }
