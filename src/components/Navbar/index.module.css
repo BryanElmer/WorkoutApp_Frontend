@@ -20,7 +20,13 @@
   align-items: center;
 }
 .nav a {
-  margin-left: 10px;
+  margin-left: 20px;
+}
+.nav a:hover {
+  color: #1aac83;
+}
+.activeLink {
+  color: #1aac83 !important;
 }
 .nav button {
   background: #fff;
