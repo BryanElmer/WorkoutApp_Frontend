@@ -1,10 +1,10 @@
 .workoutDetails {
   background: #fff;
-  border-radius: 4px;
-  margin: 20px auto;
-  padding: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   position: relative;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
 }
 .workoutDetails h4 {
   margin: 0 0 10px 0;

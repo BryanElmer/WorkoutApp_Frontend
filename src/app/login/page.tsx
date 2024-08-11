@@ -25,7 +25,7 @@ const Login = () => {
     e.preventDefault();
 
     await login(email, password);
-    router.push('/');
+    // router.push('/');
   }
 
   return (

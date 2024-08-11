@@ -3,13 +3,14 @@
 import { useEffect } from "react";
 import { useWorkoutsContext } from "@/hooks/useWorkoutsContext";
 import { useAuthContext } from "@/hooks/useAuthContext";
+import { List } from "antd";
 
 import WorkoutDetails from "../WorkoutDetails/index";
 import WorkoutForm from "../WorkoutForm/index";
 import styles from "./index.module.css";
 
 const Home = () => {
-  const {state, dispatch} = useWorkoutsContext();
+  const { state, dispatch } = useWorkoutsContext();
   const { state: userState } = useAuthContext();
 
   useEffect(() => {
@@ -40,9 +41,18 @@ const Home = () => {
   return (
     <div className={styles.home}>
       <div className={styles.workouts}>
-        {state.workouts && state.workouts.map((workout) => (
+        {/* {state.workouts && state.workouts.map((workout) => (
           <WorkoutDetails key={workout._id} workout={workout} />
-        ))}
+        ))} */}
+        {state.workouts && <List
+          itemLayout="vertical" // Change to 'vertical' if you prefer vertical layout
+          dataSource={state.workouts || []}
+          renderItem={(workout) => (
+            <List.Item key={workout._id} className={styles.listItem}>
+              <WorkoutDetails key={workout._id} workout={workout} />
+            </List.Item>
+          )}
+        />}
       </div>
       <WorkoutForm />
     </div>

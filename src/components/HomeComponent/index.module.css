@@ -1,20 +1,54 @@
-/* google font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
-
-.body {
-  background: #f1f1f1;
-  margin: 0;
-  font-family: "Poppins";
-}
-
-.pages{
-  max-width: 1400px;
-  padding: 20px;
-  margin: 0 auto;
-}
-
 .home {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 100px;
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  gap: 20px;
+  height: calc(100vh - 120px);
+  box-sizing: border-box;
+  padding-bottom: 20px;
+}
+
+/* Workouts section */
+.workouts {
+  flex: 3;
+  overflow-y: auto;
+  height: calc(100vh - 120px);
+  padding-right: 20px;
+}
+
+/* List item styling */
+.listItem {
+  margin-bottom: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #fff;
+  transition: box-shadow 0.3s;
+}
+
+/* On hover, add shadow for better visibility */
+.listItem:hover {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+  flex: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .home {
+    flex-direction: column;
+  }
+
+  .workouts {
+    height: auto;
+  }
+
+  /* Adjust form flex and size on smaller screens */
+  .form {
+    flex: 1;
+    max-width: 400px;
+    margin: 0 auto;
+  }
 }
