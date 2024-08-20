@@ -12,9 +12,11 @@ const WorkoutForm = () => {
   const [error, setError] = useState<string | null>(null);
   const [emptyFields, setEmptyFields] = useState<String[]>([]);
   const { state: userState } = useAuthContext();
+  const [isDisabled, setIsDisabled] = useState<boolean>(false);
 
   const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault();
+    setIsDisabled(true);
 
     if (!userState.user) {
       setError("You must be logged in");
@@ -47,6 +49,7 @@ const WorkoutForm = () => {
       dispatch({type: 'CREATE_WORKOUT', payload: json})
       console.log('new workout added', json);
     }
+    setIsDisabled(false);
   }
 
   return (
@@ -77,7 +80,7 @@ const WorkoutForm = () => {
         className={emptyFields.includes('reps') ? styles.fieldError : ''}
       />
 
-      <button onClick={handleSubmit}>Add Workout</button>
+      <button onClick={handleSubmit} disabled={isDisabled}>Add Workout</button>
       {error && <div className={styles.errorMsg}>{error}</div>}
     </form>
   )
